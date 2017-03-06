@@ -1,0 +1,21 @@
+[package]
+name = "git2_codecommit"
+version = "0.1.0"
+authors = ["Iliana Weller <ilianaw@buttslol.net>"]
+description = "Credential callback for using git2 with AWS CodeCommit"
+readme = "README.md"
+repository = "https://github.com/ilianaw/rust-git2-codecommit"
+keywords = ["aws", "codecommit"]
+license = "MIT"
+exclude = [".gitignore"]
+
+[dependencies]
+git2 = "0.6"
+lazy_static = "0.2"
+log = "0.3"
+regex = "0.2"
+ring = "0.7"
+rusoto_credential = "0.5"
+rustc-serialize = "0.3"
+time = "0.1"
+url = "1.4"
