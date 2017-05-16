@@ -1,4 +1,5 @@
 extern crate git2;
+extern crate hex;
 #[macro_use]
 extern crate lazy_static;
 #[macro_use]
@@ -6,15 +7,14 @@ extern crate log;
 extern crate regex;
 extern crate ring;
 extern crate rusoto_credential;
-extern crate rustc_serialize;
 extern crate time;
 extern crate url;
 
 use git2::{Cred, CredentialType, Error};
+use hex::ToHex;
 use regex::Regex;
 use ring::{digest, hmac};
 use rusoto_credential::{DefaultCredentialsProvider, ProvideAwsCredentials};
-use rustc_serialize::hex::ToHex;
 use std::error::Error as StdError;
 use time::{Tm, now_utc};
 use url::Url;
