@@ -75,7 +75,7 @@ pub fn codecommit_credentials(url_str: &str,
                                   "codecommit");
     let password = format!("{}{}",
                            gtry!(date.strftime("%Y%m%dT%H%M%SZ")),
-                           signature(&string_to_sign, signing_key));
+                           signature(&string_to_sign, &signing_key));
     debug!("password: {}", password);
 
     Cred::userpass_plaintext(&username, &password)
@@ -88,8 +88,8 @@ fn to_hexdigest<T: AsRef<[u8]>>(t: T) -> String {
     h.as_ref().to_hex().to_string()
 }
 
-fn signature(string_to_sign: &str, signing_key: hmac::SigningKey) -> String {
-    hmac::sign(&signing_key, string_to_sign.as_bytes()).as_ref().to_hex().to_string()
+fn signature(string_to_sign: &str, signing_key: &hmac::SigningKey) -> String {
+    hmac::sign(signing_key, string_to_sign.as_bytes()).as_ref().to_hex().to_string()
 }
 
 fn signing_key(secret: &str, date: Tm, region: &str, service: &str) -> hmac::SigningKey {
