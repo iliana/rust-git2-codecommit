@@ -1,6 +1,6 @@
 [package]
 name = "git2_codecommit"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Iliana Weller <ilianaw@buttslol.net>"]
 description = "Credential callback for using git2 with AWS CodeCommit"
 readme = "README.md"
